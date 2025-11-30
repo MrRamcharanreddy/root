@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit Configuration
+# AI-powered code review and error debugging
+
+language: en
+
+reviews:
+  review_status: false  # Disable status message
+  enabled: true
+  
+  # Focus areas for reviews
+  focus:
+    - error-handling
+    - security
+    - performance
+    - best-practices
+    - type-safety
+    - accessibility
+  
+  # Ignore patterns
+  ignore:
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
+    - "**/node_modules/**"
+    - "**/.next/**"
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/*.md"
+    - "**/data/products.ts" # Static data file
+
+# Error debugging settings
+debugging:
+  enabled: true
+  
+  # Track error patterns
+  error-patterns:
+    - "console.error"
+    - "console.warn"
+    - "throw new Error"
+    - "catch.*error"
+  
+  # Suggest error tracking improvements
+  suggest-error-tracking: true
+  
+  # Check for unhandled errors
+  check-unhandled-errors: true
+
+# Code quality checks
+quality:
+  # TypeScript strict mode checks
+  typescript-strict: true
+  
+  # React best practices
+  react-best-practices: true
+  
+  # Security checks
+  security-checks: true
+  
+  # Performance optimizations
+  performance-checks: true
+
+# Suggestions
+suggestions:
+  # Suggest error boundary improvements
+  error-boundaries: true
+  
+  # Suggest error tracking integration
+  error-tracking: true
+  
+  # Suggest logging improvements
+  logging-improvements: true
+
+# Paths to review
+paths:
+  include:
+    - "app/**/*.tsx"
+    - "app/**/*.ts"
+    - "components/**/*.tsx"
+    - "components/**/*.ts"
+    - "lib/**/*.ts"
+    - "lib/**/*.tsx"
+  exclude:
+    - "**/node_modules/**"
+    - "**/.next/**"
+    - "**/dist/**"
+    - "**/build/**"
+

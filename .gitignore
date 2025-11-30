@@ -1,0 +1,122 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.pnp.*
+yarn-error.log
+# Note: package-lock.json and yarn.lock should be committed for consistency
+
+# testing
+/coverage
+*.lcov
+.nyc_output
+
+# next.js
+/.next/
+/out/
+.next
+out
+
+# production
+/build
+/dist
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+.vercel/*
+
+# netlify
+.netlify
+.netlify/*
+
+# railway
+.railway
+
+# render
+.render
+
+# typescript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Note: next-env.d.ts should be committed (it's required for TypeScript)
+# next-env.d.ts is NOT ignored
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Build artifacts
+*.tsbuildinfo
+*.map
+*.min.js
+*.min.css
+
+# Database files (if using local database)
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup files
+*.backup
+*.old
+*.orig
+
+# Lock files - Keep these committed for dependency consistency
+# package-lock.json (COMMIT THIS - ensures consistent installs)
+# yarn.lock (COMMIT THIS if using yarn)
+# pnpm-lock.yaml (COMMIT THIS if using pnpm)

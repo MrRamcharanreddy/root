@@ -1,0 +1,60 @@
+name: CodeRabbit Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  coderabbit:
+    name: CodeRabbit AI Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    # Explicit permissions following least privilege principle
+    # Prevents write-all permissions at top level
+    permissions:
+      contents: read          # Read repository contents (for checkout)
+      pull-requests: write   # Write PR comments (for CodeRabbit reviews)
+      issues: read           # Read issues (for potential integrations)
+      checks: read           # Read check results
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run TypeScript check
+        run: npx tsc --noEmit --skipLibCheck
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: CodeRabbit Review
+        uses: coderabbitai/openai-pr-reviewer@latest
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: |
+            app/
+            components/
+            lib/
+          review_simple_changes: true
+          review_comment_lgtm: false
+          openai_light_model: gpt-4
+          openai_heavy_model: gpt-4
+          max_files_to_review: 50
+          review_only_changed_files: true
+
